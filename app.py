@@ -26,7 +26,7 @@ def main():
     if checked:
 
         FRAME_WINDOW = st.image([])
-        videoFeed = cv2.VideoCapture(0)
+        videoFeed = cv2.VideoCapture(-1)
 
         while True:
             _, frame = videoFeed.read()
