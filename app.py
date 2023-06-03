@@ -31,11 +31,15 @@ def main():
         while True:
             _, frame = videoFeed.read()
 
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            if frame is not None:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
-            faces = detect_bounding_box(frame=frame)
+                faces = detect_bounding_box(frame=frame)
 
-            FRAME_WINDOW.image(frame)
+                FRAME_WINDOW.image(frame)
+            
+            else:
+                st.write("No image detected, please check webcam")
 
     else:
         st.write("Click to start")
